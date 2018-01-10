@@ -18,6 +18,7 @@ alias gps="git push origin $1"
 # ----------- Run code -----------
 alias firebase="/usr/local/lib/node_modules/bin/firebase"
 alias ionic="/usr/local/lib/node_modules/bin/ionic"
+alias ionics="/usr/local/lib/node_modules/bin/ionic serve -p $1"
 alias ng="/usr/local/lib/node_modules/bin/ng"
 alias workbox="/usr/local/lib/node_modules/bin/workbox"
 # ----------- Proyectos -----------
