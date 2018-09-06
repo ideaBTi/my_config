@@ -1,0 +1,88 @@
+#!/bin/bash
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias cd..="cd .."
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias :q="exit"
+alias c="clear"
+alias ch="history -c && > ~/.bash_history"
+alias e="vim --"
+alias g="git"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ll="ls -l"
+alias m="man"
+alias map="xargs -n1"
+alias n="npm"
+alias path='printf "%b\n" "${PATH//:/\\n}"'
+alias q="exit"
+alias rm="rm -rf --"
+alias t="tmux"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias home="cd ~/"
+alias www="cd ~/Code"
+alias is="ionic serve -p $1"
+alias aliases="code ~/.bash_aliases"
+alias gs="git status"
+alias count_lines="git ls-files | xargs cat | wc -l"
+alias gc="git commit -am $1"
+alias g_merge_allow=" git merge --allow-unrelated-histories $1"
+alias g_remote_remove=" git remote remove source_code"
+alias g_remote_add=" git remote add source_code $1"
+alias g_reset=" git reset --hard source_code/$1"
+alias gpl="git pull origin $1"
+alias gps="git push origin $1"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias googleDavicomprasLab="gcloud config set project davicompras-ae1ed && gcloud compute ssh jcardona@api-instance-staging"
+alias googleDavicomprasProd="gcloud config set project davicompras-ae1ed && gcloud compute ssh jcardona@api-instance-1"
+alias googleUnileverProd="gcloud config set project unilever-prod && gcloud compute ssh jcardona@unilever-prod-vm"
+alias googleUnileverDev="gcloud config set project unilever-dev-af24a && gcloud compute ssh jcardona@mongo-dev-vm"
+alias googleUnileverStgNginx="gcloud config set project unilever-fcecf && gcloud compute ssh jcardona@nginx-stg"
+alias googleUnileverStgGraph="gcloud config set project unilever-fcecf && gcloud compute ssh jcardona@ router-graph-prod-vm"
+alias googleRebusAIProd="gcloud config set project rebus-v4-prod && gcloud compute ssh jcardona@ia-mongodb-vm"
+alias googleRebusAIDev="gcloud config set project rebus-v4 && gcloud compute ssh jcardona@rebus-mongo-vm"
+alias googleRebusXlsDev="gcloud config set project rebus-v4 && gcloud compute ssh jcardona@xls-instance"
+alias awsRebus="ssh -i '/Users/jcardona/Code/rebus/v4/backups/server_rebus.pem' ubuntu@ec2-34-236-148-59.compute-1.amazonaws.com"
+alias copy_rebus="curl 'https://rebus-v4-prod.firebaseio.com//.json?print=pretty&auth=ar57WCYCv9ntdn3WkbhKs07Too1t36lVMLtc8Z7u' > /Users/jcardona/Code/rebus/v4/backups/generalDB-Manual.json"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+alias davicompras="cd ~/Code/davicompras/davicompras_cliente"
+alias davicompras_backend="cd ~/Code/davicompras/davicompras_laravel"
+alias rebus="cd ~/Code/rebus/v4/RebusV4.0"
+alias rebus_admin="cd ~/Code/rebus/v4/RebusAdmin4"
+alias rebus_backend="cd ~/Code/rebus/v4/RebusBackendV4.0"
+alias rebus_clients="cd ~/Code/rebus/v4/Clients/rebus-general-clients"
+alias aws_rebus="ssh -i '~/Code/keys/rebus_publish_aws.pem' ubuntu@ec2-54-165-86-14.compute-1.amazonaws.com"
+alias aws_mantis="ssh -i '~/Code/keys/mantis_davicompras.pem' ubuntu@ec2-18-204-203-46.compute-1.amazonaws.com"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+edit_rebus () {
+  code /Users/jcardona/Code/rebus/v4/RebusSuperadmin/bash/branchs.txt
+}
+update_rebus () {
+  ./Users/jcardona/Code/rebus/v4/RebusSuperadmin/bash/UpdateRebus.sh
+}
+merge_rebus () {
+  ./Users/jcardona/Code/rebus/v4/RebusSuperadmin/bash/MergeRebus.sh
+}
+
+merge_client_rebus () {
+  cd ~/Code/rebus/v4/Clients/rebus-general-clients &&
+  git checkout $1 &&
+  git merge --allow-unrelated-histories source &&
+  git push origin $1
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Load OS specific aliases.
+
+. "aliases/$OS/bash_aliases"
